@@ -1,3 +1,10 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+  </Folder>
   <Project Path="Ecommerce.Api/Ecommerce.Api.csproj" />
+  <Project Path="Ecommerce.Web/Ecommerce.web.esproj" DisplayName="Ecommerce.Web">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
