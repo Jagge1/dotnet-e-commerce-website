@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Api.Models
+namespace Ecommerce.Api.Models.UserModels
 {
     public enum UserRole
     {
