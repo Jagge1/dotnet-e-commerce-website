@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Api.Models;
+using Ecommerce.Api.Models.UserModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Api.Data
@@ -8,6 +9,7 @@ namespace Ecommerce.Api.Data
     {
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Category> Categories => Set<Category>();
+        public DbSet<User> Users => Set<User>();
 
     }
 }
