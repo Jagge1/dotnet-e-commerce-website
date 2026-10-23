@@ -1,5 +1,4 @@
 ﻿using Ecommerce.Api.Models;
-using Ecommerce.Api.Models.UserModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Api.Data

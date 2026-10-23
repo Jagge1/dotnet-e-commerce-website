@@ -1,6 +1,4 @@
-﻿using Ecommerce.Api.Models.UserModels;
-
-namespace Ecommerce.Api.Models
+﻿namespace Ecommerce.Api.Models
 {
     public class Cart
     {

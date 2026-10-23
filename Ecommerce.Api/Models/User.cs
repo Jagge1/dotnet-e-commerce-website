@@ -1,4 +1,7 @@
-﻿namespace Ecommerce.Api.Models.UserModels
+﻿using Ecommerce.Api.Models;
+using Ecommerce.Api.Models.Enums;
+
+namespace Ecommerce.Api.Models
 {
     public class User
     {
