@@ -1,6 +1,6 @@
 ﻿namespace Ecommerce.Api.DTOs.Auth
 {
-    public class AuthResponse
+    public class AuthDto
     {
     }
 }
