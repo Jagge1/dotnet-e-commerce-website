@@ -1,4 +1,5 @@
 using Ecommerce.Api.Data;
+using Ecommerce.Api.Endpoints;
 using Ecommerce.Api.Models;
 using Ecommerce.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -67,5 +68,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+AuthEndpoints.Map(app);
 
 app.Run();
