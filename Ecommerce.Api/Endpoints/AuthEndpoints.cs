@@ -1,5 +1,8 @@
 ﻿using Ecommerce.Api.DTOs.Auth;
+using Ecommerce.Api.Models;
 using Ecommerce.Api.Services;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Ecommerce.Api.Endpoints;
 
@@ -40,5 +43,25 @@ public static class AuthEndpoints
 
             return Results.Ok(new { token });
         });
+
+        // Returns the logged in users information. JWT-token needed.
+        group.MapGet("/me", async (
+            ClaimsPrincipal principal,
+            UserManager<User> userManager) =>
+            {   
+            var user = await userManager.GetUserAsync(principal);
+
+            if (user is null)
+            {
+                return Results.Unauthorized();
+            }
+
+            return Results.Ok(new
+            {
+                user.Id,
+                user.UserName,
+                user.Email
+            });
+        }).RequireAuthorization();
     }
 }
