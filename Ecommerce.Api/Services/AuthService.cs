@@ -19,7 +19,15 @@ namespace Ecommerce.Api.Services
             //      - Saves user
             //      - Creates IdentityResult
 
-            return await userManager.CreateAsync(user, dto.Password);
+            var result = await userManager.CreateAsync(user, dto.Password);
+
+            if (!result.Succeeded)
+            {
+                return result;
+            }
+
+            return await userManager.AddToRoleAsync(user, "Customer");
+
         }
 
         // It returns a string because the token is a string.
