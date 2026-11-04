@@ -59,6 +59,8 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+await RoleSeeder.CreateRolesAsync(app.Services);
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -68,6 +70,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
 AuthEndpoints.Map(app);
 
 app.Run();
