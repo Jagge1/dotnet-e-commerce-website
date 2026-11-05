@@ -25,7 +25,7 @@ namespace Ecommerce.Api.Services
             {
                 return result;
             }
-
+            // New user automatically becomes Customer.
             return await userManager.AddToRoleAsync(user, "Customer");
 
         }
@@ -46,10 +46,10 @@ namespace Ecommerce.Api.Services
             {
                 return null;
             }
+        
+            var roles = await userManager.GetRolesAsync(user);
 
-            var token = jwt.CreateToken(user);
-
-            return token;
+            return jwt.CreateToken(user, roles);
         }
     }
 }

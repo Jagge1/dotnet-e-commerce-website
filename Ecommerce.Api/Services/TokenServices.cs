@@ -1,6 +1,7 @@
 ﻿using Ecommerce.Api.Models;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 
 using System.Text;
@@ -10,14 +11,15 @@ namespace Ecommerce.Api.Services;
 public class TokenServices(IConfiguration configuration)
 {
 
-    public string CreateToken(User user)
+    public string CreateToken(User user, IEnumerable<string> roles)
     {
         // Claims are information that is stored  about 
         // the user. In this case, id and email.
         var claims = new Dictionary<string, object>
         {
             [JwtRegisteredClaimNames.Sub] = user.Id,
-            [JwtRegisteredClaimNames.Email] = user.Email!
+            [JwtRegisteredClaimNames.Email] = user.Email!,
+            [ClaimTypes.Role] = roles.ToArray()
         };
 
         // Creating the key by getting the generated secret
