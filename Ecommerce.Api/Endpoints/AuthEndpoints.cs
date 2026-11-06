@@ -63,5 +63,10 @@ public static class AuthEndpoints
                 user.Email
             });
         }).RequireAuthorization();
+
+        group.MapGet("/admin-test", async () =>
+        {
+            return Results.Ok("Admin access granted.");
+        }).RequireAuthorization(policy => policy.RequireRole("Admin"));
     }
 }
