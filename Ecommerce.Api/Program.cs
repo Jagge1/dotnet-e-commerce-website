@@ -25,7 +25,8 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
 builder.Services.AddAuthorization();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<AuthServices>();
-builder.Services.AddScoped<TokenServices>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddValidation();
 
 // Service for JWT

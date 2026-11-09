@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Ecommerce.Api.Services;
 
-public class TokenServices(IConfiguration configuration)
+public class TokenService(IConfiguration configuration)
 {
 
     public string CreateToken(User user, IEnumerable<string> roles)

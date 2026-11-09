@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Ecommerce.Api.DTOs.Auth;
 namespace Ecommerce.Api.Services
 {
-    public class AuthServices(UserManager<User> userManager, TokenServices jwt)
+    public class AuthServices(UserManager<User> userManager, TokenService jwt)
     {
         public async Task<IdentityResult> Register(RegisterDto dto)
         {
